@@ -18,8 +18,8 @@
 
 /////// Global Var. //////////
 int parseStart = 0;
-int min = 255;
-int max = -255;
+//int min = 255;
+//int max = -255;
 char fileName[1000][100];
 char resultBuf[1000][100];
 
@@ -45,7 +45,7 @@ static int GetDirFileName()
     }
     fclose(ftr);
     return fileCnt;
-}*/
+}
 
 static int ParseRow(char* subStr, char* delim, char* dstBuf[])
 {
@@ -67,14 +67,15 @@ static int ParseRow(char* subStr, char* delim, char* dstBuf[])
     }
     return txtCnt;
 }
-
+*/
 
 int main(int argc, char *argv[])
 {
     FILE *fptr = NULL;
     char tmpbuf[256];
     int i, j, fileCnt = 0;
-    int rowCnt = 1, nameCnt = 0;
+    //int rowCnt = 1;
+    int nameCnt = 0;
 
     // Creat a new result file.
     if((fptr = fopen(RESULT_FILE, "w")) == NULL)
@@ -101,11 +102,11 @@ int main(int argc, char *argv[])
     while(fgets(tmpbuf, sizeof(tmpbuf), fptr) != 0)
     {
         char* subStr;
-        char* delim = "\n,"; // '1''2''3''4''5''6''7''8''9''0'
-        int fldCnt = 0;
+        char* delim = "\n,";
+        //int fldCnt = 0;
         int curChar = 0;
         char findNum = 0;
-        char findSpace = 0;
+        //char findSpace = 0;
         char numCnt = 0;
         char param[MAX_PARAM_CNT];
 
